@@ -39,7 +39,7 @@ services:
       - ${BD_PORT}:8080
     volumes:
       - db:/var/lib/postgresql/data
-      - ./db/init.sql:/docker-entrypoint-initdb.d/create_tables.sql
+      - ./db/database.sql:/docker-entrypoint-initdb.d/create_tables.sql
     restart: unless-stopped
     networks:
       - backend
