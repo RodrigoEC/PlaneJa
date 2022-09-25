@@ -1,0 +1,50 @@
+version '3.8'
+
+services:
+  front:
+    container_name: frontend
+    build: ./frontend
+    user: node
+    volumes:
+      - ./frontend:/app:cached
+      - /app/node_modules
+    ports:
+      - ${FRONT_PORT}:3000
+    networks:
+      - backend
+
+  api:
+    container_name: API
+    build: ./backend
+    volumes:
+      - ./backend:/app:cached
+    ports:
+      - ${BACK_PORT}:8000
+    networks:
+      - backend
+    deploy:
+      resources:
+        limits:
+          memory: 2048M
+        reservations:
+          memory: 1028M
+
+  bd:
+    container_name: database
+    image: postgres:latest
+    environment:
+      POSTGRES_USER: ${POSTGRES_USER}
+      POSTGRES_PASSWORD: ${POSTGRES_PASSWORD}
+    ports:
+      - ${BD_PORT}:8080
+    volumes:
+      - db:/var/lib/postgresql/data
+      - ./db/init.sql:/docker-entrypoint-initdb.d/create_tables.sql
+    restart: unless-stopped
+    networks:
+      - backend
+
+networks:
+  backend:
+    driver: bridge
+Footer
