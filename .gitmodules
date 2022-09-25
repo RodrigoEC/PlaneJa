@@ -1,10 +1,4 @@
-[submodule "frontend"]
-	path = frontend
-	branch = main
-	url = https://github.com/RodrigoEC/PlaneJa-Front
-
 [submodule "backend"]
 	path = backend
 	branch = main
 	url = https://github.com/RodrigoEC/PlaneJa-API
-
