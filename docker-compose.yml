@@ -19,6 +19,7 @@ services:
     user: node
     environment:
       PORT: ${BACK_PORT}
+      DATABASE_URL: ${DATABASE_URL},
     volumes:
       - ./backend:/app:cached
     ports:
@@ -32,23 +33,17 @@ services:
         reservations:
           memory: 1028M
 
-  bd:
-    container_name: database
-    image: postgres:14.1-alpine
-    environment:
-      POSTGRES_USER: ${POSTGRES_USER}
-      POSTGRES_PASSWORD: ${POSTGRES_PASSWORD}
+  bd-mongo:
+    container_name: mongodb
+    image: mongo:4.2
     ports:
-      - ${BD_PORT}:8080
+      - ${DB_PORT}:27017
     volumes:
-      - db:/var/lib/postgresql/data
-      - ./db/database.sql:/docker-entrypoint-initdb.d/create_tables.sql
+      - ./volumes/mongodb:/data/bd-mongo
     restart: unless-stopped
     networks:
       - backend
-volumes:
-  db:
-    driver: local
+
 networks:
   backend:
     driver: bridge
