@@ -19,7 +19,7 @@ services:
     user: node
     environment:
       PORT: ${BACK_PORT}
-      DATABASE_URL: ${DATABASE_URL},
+      DATABASE_URL: ${DATABASE_URL}
     volumes:
       - ./backend:/app:cached
     ports:
