@@ -39,7 +39,7 @@ services:
     ports:
       - ${DB_PORT}:27017
     volumes:
-      - ./volumes/mongodb:/data/bd-mongo
+      - ./volumes/mongodb:/data/db
     restart: unless-stopped
     networks:
       - backend
