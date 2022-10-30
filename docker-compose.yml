@@ -1,17 +1,17 @@
 version: '3.8'
 
 services:
-  # front:
-  #   container_name: frontend
-  #   build: ./frontend
-  #   user: node
-  #   volumes:
-  #     - ./frontend:/app:cached
-  #     - /app/node_modules
-  #   ports:
-  #     - ${FRONT_PORT}:3000
-  #   networks:
-  #     - backend
+  front:
+    container_name: frontend
+    build: ./frontend
+    user: node
+    volumes:
+      - ./frontend:/app:cached
+      - /app/node_modules
+    ports:
+      - ${FRONT_PORT}:3000
+    networks:
+      - backend
 
   api:
     container_name: API
