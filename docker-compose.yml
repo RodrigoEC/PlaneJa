@@ -2,7 +2,7 @@ version: '3.8'
 
 services:
   front:
-    container_name: frontend
+    container_name: frontend-planeja
     build: ./frontend
     user: node
     volumes:
@@ -14,7 +14,7 @@ services:
       - backend
 
   api:
-    container_name: API
+    container_name: API-planeja
     build: ./backend
     user: node
     environment:
@@ -34,7 +34,7 @@ services:
           memory: 1028M
 
   bd-mongo:
-    container_name: mongodb
+    container_name: mongodb-planeja
     image: mongo:4.2
     ports:
       - ${DB_PORT}:27017
