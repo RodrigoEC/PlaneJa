@@ -5,6 +5,8 @@ services:
     container_name: frontend-planeja
     build: ./frontend
     user: node
+    environment:
+      REACT_APP_BASE_URL: ${BACK_URL}
     volumes:
       - ./frontend:/app:cached
       - /app/node_modules
