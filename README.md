@@ -34,22 +34,22 @@ Para o segundo, no entanto, é necessário que seja feito o cadastro de um objet
   
 ```json
   {
-	"name": "nome-do-curso",
-	"dependencies": {
-		"id-da-cadeira": {
-			"nome": "nome-da-cadeira",
-			"tipo": "optativa geral (exemplo)",
-			"periodo": 5,
-			"dependencias": []
-		},
-		"1108081": {
-			"nome": "Física geral II",
-			"tipo": "optativa geral",
-			"periodo": null,
-			"dependencias": [
-				"1108030",
-				"1109126",
-				"1411312"
-			]
-		},
+    "name": "nome-do-curso",
+    "dependencies": {
+      "id-da-cadeira": {
+        "nome": "nome-da-cadeira",
+        "tipo": "optativa geral (exemplo)",
+        "periodo": 5,
+        "dependencias": []
+      },
+      "1108081": {
+        "nome": "Física geral II",
+        "tipo": "optativa geral",
+        "periodo": null,
+        "dependencias": [
+          "1108030",
+          "1109126",
+	  "1411312"
+        ]
+},
 ```
